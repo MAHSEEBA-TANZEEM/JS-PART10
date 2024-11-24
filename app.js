@@ -50,11 +50,11 @@
 
 // event listener on elements
 
-// let p = document.querySelector("p");
+let p1 = document.querySelector("#sample");
 
-// p.addEventListener("click",function(){
-//     console.log("para was clciked");
-// });
+p1.addEventListener("click",function(){
+    console.log("para was clciked");
+});
 
 let box = document.querySelector(".box");
 
@@ -80,7 +80,7 @@ box.addEventListener("dblclick",function() {
 // });
 
 let btn = document.querySelector("button");
-let p = document.querySelector("p");
+let p2 = document.querySelector("#para");
 let h1 = document.querySelector("h1");
 let h3 = document.querySelector("h3");
 
@@ -89,7 +89,7 @@ let h3 = document.querySelector("h3");
 //     this.style.backgroundColor = "blue";
 // });
 
-// p.addEventListener("click", function(){
+// p2.addEventListener("click", function(){
 //     console.dir(this.innerText);
 //     this.style.backgroundColor = "blue";
 // });
@@ -110,26 +110,89 @@ function changeColor() {
     this.style.backgroundColor = "blue";
 };
 btn.addEventListener("click", changeColor);
-p.addEventListener("click", changeColor);
+p2.addEventListener("click", changeColor);
 h1.addEventListener("click", changeColor);
 h3.addEventListener("click", changeColor);
 
 // // keyboard events
-// let btn2 = document.querySelector("button");
+let btn2 = document.querySelector("button");
 
-btn.addEventListener("click",function(event) {
+btn2.addEventListener("click",function(event) {
     console.log("button clicked");
     console.log(event);
 });
 
-btn.addEventListener("dblclick",function(event) {
+btn2.addEventListener("dblclick",function(event) {
     console.log("button clicked");
     console.log(event);
 });
 
-let inp = document.querySelector("input");
+// let inp = document.querySelector("input");
 
-inp.addEventListener("keydown", function(e) {
-    console.log("key was pressed");
-    console.log(e);
+// inp.addEventListener("keydown", function(e) {
+//     console.log("key was pressed");
+//     console.log(e);
+// });
+
+// form events
+let form = document.querySelector("form");
+
+// form.addEventListener("submit",function() {
+//     alert("form submitted");
+// });
+
+// form.addEventListener("submit",function(event) {
+//     event.preventDefault();
+//     alert("form submitted");
+// });
+
+// extracting form data
+// form.addEventListener("submit", function(event){
+//     event.preventDefault();
+
+//     let inp = document.querySelector("input");
+//     console.dir(inp);
+//     console.log(inp.value);
+// });
+
+form.addEventListener("submit", function(event){
+    event.preventDefault();
+
+   // let user = document.querySelector("#user");
+    // let pass = document.querySelector("#pass");
+    
+    let user = this.elements[0];
+    let pass = this.elements[1];
+    console.log(user.value);
+    console.log(pass.value);
+    alert(`Hi ${user.value} your password is set to ${pass.value}` );
+//  console.dir(form.elements);
 });
+
+// more events
+let user = document.querySelector("#user");
+
+user.addEventListener("change",function() {
+    console.log("change event");
+    console.log("final value = ", user.value);
+});
+// let form = document.querySelector("form");
+
+form.addEventListener("submit",function(event){
+    event.preventDefault();
+});
+
+user.addEventListener("input",function() {
+    console.log("input event");
+    console.log("final value = ", this.value);
+});
+
+// text editor
+let inp = document.querySelector("#text");
+let p = document.querySelector("p");
+
+inp.addEventListener("input",function() {
+    console.log(inp.value);
+    p.innerText = inp.value;
+});
+
